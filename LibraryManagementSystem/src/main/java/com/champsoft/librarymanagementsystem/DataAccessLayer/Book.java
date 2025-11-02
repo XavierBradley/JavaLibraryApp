@@ -12,20 +12,19 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-
 public class Book {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String title, isbn;
     private int publicationYear;
-    @ManyToOne(fetch= FetchType.LAZY)
-    @JoinColumn(name="fk_author")
+    
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "fk_author")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Author author;
 
     public Book(String title, String isbn, int publicationYear, Author author) {
-
         this.title = title;
         this.isbn = isbn;
         this.publicationYear = publicationYear;
