@@ -9,6 +9,7 @@ import com.champsoft.librarymanagementsystem.BusinessLogicLayer.AuthorService;
 
 import java.net.URI;
 import java.util.List;
+import jakarta.validation.Valid;
 @RestController
 @RequestMapping("/authors")
 @RequiredArgsConstructor
@@ -26,14 +27,14 @@ public class AuthorController {
     }
 
     @PostMapping
-    public ResponseEntity<AuthorResponseModel> createNewAuthor(@RequestBody AuthorRequestModel req) {
-        var created = authorService.createNewAuthor(req);
-        return ResponseEntity.created(URI.create("/authors/" + created.getId())).body(created);
+    public ResponseEntity<AuthorResponseModel> createNewAuthor(@Valid @RequestBody AuthorRequestModel req) {
+    var created = authorService.createNewAuthor(req);
+    return ResponseEntity.created(URI.create("/authors/" + created.getId())).body(created);
     }
 
     @PutMapping("/{id}")
-    public AuthorResponseModel updateAuthor(@PathVariable String id, @RequestBody AuthorRequestModel authorData) {
-        return this.authorService.updateAuthor(id, authorData);
+    public AuthorResponseModel updateAuthor(@PathVariable String id, @Valid @RequestBody AuthorRequestModel authorData) {
+    return this.authorService.updateAuthor(id, authorData);
     }
 
     @DeleteMapping("/{id}")
@@ -47,3 +48,4 @@ public class AuthorController {
         return this.authorService.getBooksOfAuthorById(id);
     }
 }
+
