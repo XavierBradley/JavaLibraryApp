@@ -1,8 +1,5 @@
 Library Management System
 
-Live Deployment
-URL: (will add after deployment)
-
 API Endpoints
     Authors
 - GET /authors
