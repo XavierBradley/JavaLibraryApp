@@ -1,5 +1,6 @@
 package com.champsoft.librarymanagementsystem.DataAccessLayer;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -19,7 +20,8 @@ public class Book {
     private String title, isbn;
     private int publicationYear;
     
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JsonBackReference
     @JoinColumn(name = "fk_author")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Author author;
