@@ -8,8 +8,12 @@ import Books from "./pages/Books";
 import About from "./pages/About";
 import AuthorDetails from "./pages/AuthorDetails";
 import "./App.css";
+import { useEffect } from "react";
 
 function App() {
+    useEffect(() => {
+        console.log("VITE_API_URL:", import.meta.env.VITE_API_URL);
+    }, []);
   return (
     <Router>
       <div
