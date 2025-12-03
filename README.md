@@ -20,12 +20,12 @@ API Endpoints
 
 ./gradlew bootRun
 
-Access at: http://localhost:8080
+Website at: https://java-library-app.vercel.app/
+Access springboot at: https://javalibraryapp.onrender.com
 
-H2 Console: http://localhost:8080/h2-console
-- JDBC URL: jdbc:h2:mem:librarydb
-- Username: sa
-- Password: (blank)
+- Postgre URL: jdbc:postgresql://dpg-d4m7nr7diees739t3iv0-a.oregon-postgres.render.com:5432/library_database_mhvm
+- Username: library_database_mhvm_user
+- Password: GT1Dm7w0qJr7R3kDfCawMo4F38cZ9JzX
 
    Features
 - Full CRUD for Authors and Books
